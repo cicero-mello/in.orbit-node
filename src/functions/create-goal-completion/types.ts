@@ -4,6 +4,6 @@ export interface CreateGoalCompletionRequest {
     goalId: string
 }
 
-export interface CreateGoalCompletionResult {
+export interface CreateGoalCompletionResponse {
     goalCompletion: GoalCompletion
 }

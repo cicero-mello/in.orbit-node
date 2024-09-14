@@ -1,4 +1,4 @@
-export interface SummaryGoal {
+export interface SummaryCompletionGoal {
     id: string
     title: string
     completedAt: Date
@@ -6,7 +6,7 @@ export interface SummaryGoal {
 
 export interface GoalsByDay {
     day: Date,
-    goals: SummaryGoal[]
+    goals: SummaryCompletionGoal[]
 }
 
 export interface SummaryOfThisWeek {

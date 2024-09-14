@@ -5,6 +5,6 @@ export interface CreateGoalRequest {
     desiredWeeklyFrequency: number
 }
 
-export interface CreateGoalResult {
+export interface CreateGoalResponse {
     goal: Goal
 }

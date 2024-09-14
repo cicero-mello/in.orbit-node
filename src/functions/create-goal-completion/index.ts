@@ -1,11 +1,11 @@
 import { db } from "../../db"
 import { goalCompletions } from "../../db/schema"
-import { CreateGoalCompletionRequest, CreateGoalCompletionResult } from "./types"
+import { CreateGoalCompletionRequest, CreateGoalCompletionResponse } from "./types"
 import { validate } from "./validate"
 
 export const createGoalCompletion = async ({
     goalId
-}: CreateGoalCompletionRequest): Promise<CreateGoalCompletionResult> => {
+}: CreateGoalCompletionRequest): Promise<CreateGoalCompletionResponse> => {
     await validate(goalId)
 
     const insertResult = await db.insert(

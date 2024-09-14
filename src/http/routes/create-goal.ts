@@ -14,6 +14,6 @@ const schema = {
 export const createGoalRoute: FastifyPluginAsyncZod = async app => {
     app.post(route, { schema }, async (request) => {
         const { title, desiredWeeklyFrequency } = request.body
-        await createGoal({ title, desiredWeeklyFrequency })
+        return await createGoal({ title, desiredWeeklyFrequency })
     })
 }

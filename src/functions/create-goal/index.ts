@@ -1,10 +1,10 @@
 import { db } from "../../db"
 import { goals } from "../../db/schema"
-import { CreateGoalRequest, CreateGoalResult } from "./types"
+import { CreateGoalRequest, CreateGoalResponse } from "./types"
 
 export const createGoal = async ({
     title, desiredWeeklyFrequency
-}: CreateGoalRequest): Promise<CreateGoalResult> => {
+}: CreateGoalRequest): Promise<CreateGoalResponse> => {
     const result = await db.insert(
         goals
     ).values({

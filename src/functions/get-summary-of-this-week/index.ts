@@ -52,6 +52,7 @@ export const getSummaryOfThisWeek = async (): Promise<SummaryOfThisWeekResponse>
                         'title', ${goalsCompletedInThisWeek.title},
                         'completedAt', ${goalsCompletedInThisWeek.completedAt}
                     )
+                    ORDER BY ${goalsCompletedInThisWeek.completedAt} DESC
                 )
             `.as("goals")
         }).from(
@@ -89,9 +90,9 @@ export const getSummaryOfThisWeek = async (): Promise<SummaryOfThisWeekResponse>
                     ORDER BY ${goalsCompletedByDayInThisWeek.date} DESC
                 )
             FROM ${goalsCompletedByDayInThisWeek}
-        )`.mapWith((result: GoalsByDay[]) => result.map((item) => ({
-            day: new Date(item.day),
-            goals: item.goals.map(({completedAt, ...rest}) => ({
+        )`.mapWith((result: GoalsByDay[]) => result.map(({day, goals}) => ({
+            day: day,
+            goals: goals.map(({completedAt, ...rest}) => ({
                 ...rest,
                 completedAt: new Date(completedAt)
             }))
